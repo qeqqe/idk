@@ -8,8 +8,8 @@ export class RegisterService {
     const hashedPassword = await bcrypt.hash(user.password, 10);
     const newUser = await prisma.user.create({
       data: {
-        email: user.email,
         username: user.username,
+        email: user.email,
         password: hashedPassword,
       },
     });
